@@ -1,0 +1,97 @@
+
+:root {
+    --bg: #0f1724;
+    --panel: #0b1220;
+    --accent: #0ea5ff;
+    --muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+    background: linear-gradient(180deg, var(--bg), #08101a);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial
+}
+
+.calculator {
+    width: min(420px, 92vw);
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
+
+.display {
+    height: 84px;
+    background: var(--glass);
+    border-radius: 10px;
+    padding: 18px 20px;
+    color: #e6eef6;
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+    word-break: break-all
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 18px
+}
+
+.btn {
+    background: transparent;
+    border: 0;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: #e6eef6;
+    cursor: pointer;
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.02)
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn:active {
+    transform: translateY(0)
+}
+
+.op {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.action {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.02));
+    color: var(--muted)
+}
+
+.action[data-action="equals"] {
+    grid-column: 3 / span 2;
+    background: linear-gradient(90deg, var(--accent), #3b82f6);
+    color: #04263b;
+    font-weight: 600
+}
+
+@media (max-width:420px) {
+    .display {
+        font-size: 1.6rem;
+        height: 70px;
+        padding: 12px
+    }
+}
